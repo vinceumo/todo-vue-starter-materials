@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo list</title>
+    <meta name="description" content="Vue js to do list">
+
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="content/css/screen.min.css">
+    <script src="content/js/app.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-container">
+            <nav>
+                <ul>
+                    <li class="is-active">
+                        <button>
+                            🐱‍👓Holiday in Japan
+                            <span>
+                                2 / 6
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            🚀 Bucket list
+                            <span>
+                                3 / 7
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            🥗 Groceries
+                            <span>
+                                5 / 5
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            📁 Work
+                            <span>
+                                1 / 2
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            📷 Photography
+                            <span>
+                                1 / 1
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="is-add">Create a new list</button>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <header style="background-image: url(&quot;https://source.unsplash.com/featured/?tokyo&quot;);">
+                    <div class="header-content">
+                        <h1>🐱‍👓Holiday in Japan</h1>
+                        <button class="is-primary">Edit list</button>
+                    </div>
+                </header>
+                <ul>
+                    <li class="is-completed">
+                        <label for="todo0">
+                            <input name="todo0" id="todo0" type="checkbox">Eat Ramens</label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li class="is-completed">
+                        <label for="todo1">
+                            <input name="todo1" id="todo1" type="checkbox">Karaoke </label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li>
+                        <label for="todo2">
+                            <input name="todo2" id="todo2" type="checkbox">Sushis</label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li>
+                        <label for="todo3">
+                            <input name="todo3" id="todo3" type="checkbox">Visit mt Fuji</label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li>
+                        <label for="todo4">
+                            <input name="todo4" id="todo4" type="checkbox">Harajuku</label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li>
+                        <label for="todo5">
+                            <input name="todo5" id="todo5" type="checkbox">Get a bento box for mum</label>
+                        <button class="is-primary">Edit todo</button>
+                    </li>
+                    <li>
+                        <button class="is-add">New Todo</button>
+                    </li>
+                </ul>
+            </main>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <!--createNewList-->
+                <form>
+                    <h3>Create a new list</h3>
+                    <label for="listTitle">Title:</label>
+                    <input id="listTitle" name="listTitle" placeholder="My amazing next trip to south america" type="text">
+                    <label for="listKeyword">Keyword:</label>
+                    <input id="listKeyword" name="listKeyword" placeholder="Colombia" type="text">
+                    <div class="buttons">
+                        <button type="button" class="is-danger">Cancel</button>
+                        <button type="button" class="is-confirm">Create List</button>
+                    </div>
+                </form>
+                <!--editList-->
+                <!-- <form>
+                    <h3>Edit list</h3>
+                    <label for="listTitle">Title:</label>
+                    <input id="listTitle" name="listTitle" placeholder="My amazing next trip to south america"
+                        type="text">
+                    <label for="listKeyword">Keyword:</label>
+                    <input id="listKeyword" name="listKeyword" placeholder="Colombia" type="text">
+                    <div class="buttons">
+                        <button type="button" class="is-danger">Delete list</button>
+                        <button type="button" class="is-confirm">Done</button>
+                    </div>
+                </form> -->
+                <!--createNewTodo-->
+                <!-- <form>
+                    <h3>Create a new todo</h3>
+                    <label for="todoName">Todo:</label>
+                    <input id="todoName" name="todoName" placeholder="Do things..." type="text">
+                    <label for="todoCompleted">
+                        <input name="todoCompleted" id="todoCompleted" type="checkbox"> Is completed</label>
+                    <div class="buttons">
+                        <button type="button" class="is-danger">Cancel</button>
+                        <button type="button" class="is-confirm">Create todo</button>
+                    </div>
+                </form> -->
+                <!--editTodo-->
+                <!-- <form>
+                    <h3>Edit todo</h3>
+                    <label for="todoName">Todo:</label>
+                    <input id="todoName" name="todoName" placeholder="Do things..." type="text">
+                    <label for="todoCompleted">
+                        <input name="todoCompleted" id="todoCompleted" type="checkbox"> Is completed</label>
+                    <div class="buttons">
+                        <button type="button" class="is-danger">Delete todo</button>
+                        <button type="button" class="is-confirm">Done</button>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+        <button class="menu">Menu</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+//https://color.adobe.com/CS04-color-theme-1994456/
+
+$white: #fff;
+$black: #000;
+$grey: #f7f7f7;
+$blue: #77c4d3;
+$red: #ea2e49;
+$green: #34d980;
+
+$desktop-bp: 850px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &.is-danger,
+  &.is-confirm,
+  &.is-primary {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+
+  &.is-danger {
+    color: $red;
+    &:after {
+      background-color: $red;
+    }
+  }
+
+  &.is-confirm {
+    color: $green;
+    &:after {
+      background-color: $green;
+    }
+  }
+
+  &.is-primary {
+    color: $blue;
+    &:after {
+      background-color: $blue;
+    }
+  }
+
+  &.is-add {
+    color: $blue;
+    justify-content: flex-start;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:before {
+      content: "+";
+      display: inline-block;
+      color: $white;
+      background-color: $blue;
+      border-radius: 50%;
+      text-align: center;
+      width: 1.2rem;
+      height: 1.2rem;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-right: 0.5rem;
+    }
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: $blue;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $white;
+  border-radius: 100px;
+  box-shadow: 2px 2px 10px transparentize($color: $black, $amount: 0.7);
+  z-index: 10;
+
+  @media screen and (min-width: $desktop-bp) {
+    display: none;
+  }
+}
+
+.page-container {
+  @media screen and (min-width: $desktop-bp) {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+nav {
+  height: 100vh;
+  width: 100vw;
+  padding-bottom: 3rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.4s ease-in-out;
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media screen and (min-width: $desktop-bp) {
+    position: unset;
+    transform: translate3d(0, 0, 0);
+    width: auto;
+    top: auto;
+    left: auto;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      &.is-active {
+        background-color: $grey;
+      }
+
+      button {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        &.is-active {
+          background-color: $grey;
+        }
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      &:last-child {
+        margin: 0 1rem;
+
+        button {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .sidebar-content {
+    min-width: 300px;
+    max-width: 600px;
+  }
+}
+
+main {
+  height: 100vh;
+  background-color: $grey;
+  padding-bottom: 3.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid darken($grey, 10%);
+
+      &.is-completed {
+        label {
+          opacity: 0.5;
+
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+
+      label {
+        cursor: pointer;
+        position: relative;
+
+        &:after {
+          content: "";
+          height: 1px;
+          width: 0;
+          background-color: $black;
+          position: absolute;
+          top: 50%;
+          left: 0;
+        }
+
+        input {
+          margin-right: 1rem;
+          width: 1rem;
+        }
+      }
+
+      &:last-child {
+        button {
+          padding-left: 0;
+          &:before {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+header {
+  background-size: cover;
+  background-position: center center;
+  padding: 3rem 1rem;
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparentize($color: $grey, $amount: 0.5);
+    z-index: 0;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+
+    button {
+      background-color: $white;
+      padding: 0.5rem;
+
+      &:after {
+        bottom: 0.25rem;
+        left: 0.5rem;
+      }
+
+      &:hover,
+      &:focus {
+        &:after {
+          width: calc(100% - 1rem);
+        }
+      }
+    }
+  }
+}
+
+form {
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  input[type="text"] {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 1rem 0.75rem;
+    opacity: 0.7;
+    transition: opacity 0.4s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  .buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
